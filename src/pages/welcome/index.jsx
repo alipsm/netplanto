@@ -21,10 +21,10 @@ export default function Welcome() {
                 <NetPlantoAnimation />
                 </div>
                 <div className=' flex justify-between items-center flex-col gap-5 sm:gap-8 w-full '>
-                    <Link to={"/login"} className=' w-full max-w-96'>
+                    <Link to={"/accountOperation/login"} className=' w-full max-w-96'>
                         <Button text={"Login"} />
                     </Link>
-                    <Link to={"/signup"} className=' w-full max-w-96'>
+                    <Link to={"/accountOperation/signup"} className=' w-full max-w-96'>
                         <Button text={"Sign Up"} />
                     </Link>
                     <Button text={"Login with google"} />

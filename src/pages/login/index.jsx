@@ -12,8 +12,8 @@ export default function Login() {
                 <div className=' w-36'>
                 <Button text={"Login"} />
                 </div>
-                <Link className=''>
-                    Forget Password
+                <Link to='/accountOperation/forgotPassword' className=' underline'>
+                    Forgot Password
                 </Link>
             </div>
             <div className='flex justify-center items-center flex-col w-64 m-auto gap-5 relative z-10 sm:top-2'>

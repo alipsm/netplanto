@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/netplanto/static/css/main.7da1f989.css",
-    "main.js": "/netplanto/static/js/main.b41009d8.js",
+    "main.css": "/netplanto/static/css/main.507e89d3.css",
+    "main.js": "/netplanto/static/js/main.5f2a2474.js",
     "static/media/shrub.png": "/netplanto/static/media/shrub.986c5100b68d6b8d2280.png",
     "static/media/logo.png": "/netplanto/static/media/logo.c65b34249b3071f393e4.png",
     "static/media/netplanto.png": "/netplanto/static/media/netplanto.90860908537a91fcbde3.png",
     "static/media/green_arrow.png": "/netplanto/static/media/green_arrow.f43a6a20525f35b6a1bc.png",
     "index.html": "/netplanto/index.html",
-    "main.7da1f989.css.map": "/netplanto/static/css/main.7da1f989.css.map",
-    "main.b41009d8.js.map": "/netplanto/static/js/main.b41009d8.js.map"
+    "main.507e89d3.css.map": "/netplanto/static/css/main.507e89d3.css.map",
+    "main.5f2a2474.js.map": "/netplanto/static/js/main.5f2a2474.js.map"
   },
   "entrypoints": [
-    "static/css/main.7da1f989.css",
-    "static/js/main.b41009d8.js"
+    "static/css/main.507e89d3.css",
+    "static/js/main.5f2a2474.js"
   ]
 }

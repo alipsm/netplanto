@@ -1,12 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TextBox from '../../../elements/textBox'
 import Button from '../../../elements/button'
 import { Link } from 'react-router-dom'
 import { FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { GoogleLogin } from '@react-oauth/google';
 
 export default function SignUp() {
     const [verifyPhone, setVerifyPhone] = useState(false)
+
+
+    function successLoginWithGoogle(response) {
+        console.log('response', response)
+    }
+    function handleErrorLoginWithGoogle() {
+
+    }
     return (
         <div className='f lex flex-col items-center justify-evenly relative w-full h-full z-10 sm:w-4/6'>
             <div className=' flex flex-col justify-center items-center gap-5 justify-self-start m-auto relative w-4/6  h-3/6 sm:h-4/6'>
@@ -42,7 +51,10 @@ export default function SignUp() {
                         Login
                     </Link>
                 </p>
-                <Button text={"Login with google"} />
+                <GoogleLogin
+                    onSuccess={successLoginWithGoogle}
+                    onError={() => handleErrorLoginWithGoogle()}
+                />
             </div>
         </div>
     )

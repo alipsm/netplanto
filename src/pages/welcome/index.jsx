@@ -5,8 +5,18 @@ import NetPlantoAnimation from '../../animation/netplanto'
 import Button from '../../elements/button'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { GoogleLogin } from '@react-oauth/google'
 
 export default function Welcome() {
+
+    
+
+    function successLoginWithGoogle(response) {
+        console.log('response', response)
+    }
+    function handleErrorLoginWithGoogle() {
+
+    }
     return (
         <div className='flex justify-between items-center w-full h-full'>
              <motion.div
@@ -49,7 +59,10 @@ export default function Welcome() {
                     <Link to={"/accountOperation/signup"} className=' w-full max-w-96'>
                         <Button text={"Sign Up"} />
                     </Link>
-                    <Button text={"Login with google"} />
+                    <GoogleLogin
+                    onSuccess={successLoginWithGoogle}
+                    onError={() => handleErrorLoginWithGoogle()}
+                />
                 </div>
             </div>
 

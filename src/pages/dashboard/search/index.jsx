@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import TextBox from '../../../elements/textBox'
-import { IoIosArrowDown } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiEditAlt } from "react-icons/bi";
 import { IoMdCheckmark } from "react-icons/io";
@@ -8,8 +7,13 @@ import { FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import Button from '../../../elements/button';
+import Toggle from '../../../elements/toggle';
+import AutomationDropDown from './dropDown';
+
 
 export default function Search() {
+
+
     const [inputValue, setInputValue] = useState("")
     const [showDeleteAlert, setshowDeleteAlert] = useState(false)
     const [showEditAlert, setshowEditAlert] = useState(false)
@@ -36,8 +40,13 @@ export default function Search() {
                         <RiDeleteBin6Line className=" w-7 h-7 absolute top-4 -right-10 cursor-pointer hover:opacity-70" onClick={() => setshowDeleteAlert(true)} />
                     </motion.div>
                 )}
-                <IoIosArrowDown className=" w-10 h-10 z-30 absolute -bottom-6 bg-[#fff] p-1 pt-2 m-auto shadow-lg shadow-[#00000052] rounded-full hover:shadow-md hover:opacity-80 transition-all cursor-pointer" />
+                <div className=' z-30 absolute -bottom-6 m-auto'>
+                    <AutomationDropDown />
+                </div>
             </div>
+
+
+
 
             {showDeleteAlert && (
                 <motion.div

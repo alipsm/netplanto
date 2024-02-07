@@ -1,6 +1,6 @@
 import React from 'react'
-import TextBox from '../../elements/textBox'
-import Button from '../../elements/button'
+import TextBox from '../../../elements/textBox'
+import Button from '../../../elements/button'
 import { Link } from 'react-router-dom'
 
 export default function Login() {

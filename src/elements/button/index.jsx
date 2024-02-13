@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Button({ text, onclick, img, type = "default" }) {
+export default function Button({ text, onclick, img ,submit, type = "default" }) {
   const btnType = {
     success: {bg:"#1C7933",textColor:"white"},
     error: {bg:"#FF2E2E",textColor:"white"},

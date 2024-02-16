@@ -10,13 +10,24 @@ import Dashboard from "./components/dashboard";
 import RegisterQrcode from "./pages/dashboard/registerQrcode";
 import LoadingPage from "./components/loading";
 import Search from "./pages/dashboard/search";
+import { useEffect, useState } from "react";
 
 function App() {
+  const[isDark,setIsDark]=useState("1");
+
+  useEffect(() => {
+    const getDarkStatus = localStorage.getItem("dark")
+    setIsDark(getDarkStatus)
+  }, [])
+  useEffect(() => {
+    localStorage.setItem("dark",isDark)
+  }, [isDark])
+
   return (
     <>
-      <div className=" w-screen h-screen overflow-hidden">
+      <div className={`w-screen h-screen overflow-hidden ${!!(+isDark)?"bg-[#00000050]":"bg-[#ffff]"}`}>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/dashboard" element={<Dashboard setIsDark={setIsDark}/>}>
             <Route path="scan" element={<Scan />} />
             <Route path="search" element={<Search />} />
             <Route path="registerQrcode" element={<RegisterQrcode />} />

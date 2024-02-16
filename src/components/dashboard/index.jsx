@@ -11,10 +11,11 @@ import netplanto_logo from '../../assets/img/logo.png'
 import shrub_pic from '../../assets/img/shrub.png'
 import Button from '../../elements/button';
 
-export default function Dashboard() {
+export default function Dashboard({setIsDark}) {
     const [showHint, setShowHint] = useState(false)
     const { pathname } = useLocation()
     const getSubdirectory = pathname.split("/").slice(-1)[0]
+
     return (
         <div className='flex justify-between w-full h-full relative'>
             <motion.div
@@ -23,9 +24,9 @@ export default function Dashboard() {
                 transition={{ duration: 1, delay: .6 }}
 
             >
-                <SideBar />
+                <SideBar setIsDark={setIsDark}/>
             </motion.div>
-            <div className='relative w-full mr-5 rounded-3xl  bg-[#ffffffcc] overflow-hidden'>
+            <div className='relative w-full mr-5 rounded-3xl  bg-[#ffffff00] overflow-hidden'>
 
                 <motion.div
                     key={getSubdirectory}
@@ -41,7 +42,7 @@ export default function Dashboard() {
 
 
 
-            <img src={shrub_pic} alt="shrub" className=' absolute bottom-0  -right-32 h-72 max-h-80 max-w-56 w-56 sm:max-h-none sm:max-w-none sm:h-2/4 sm:w-96' />
+            <img src={shrub_pic} alt="shrub" className=' absolute bottom-0 -right-10 md:-right-32 h-72 max-h-80 max-w-56 w-56 sm:max-h-none sm:max-w-none sm:h-2/4 sm:w-96' />
             <img src={netplanto_logo} alt="logo" className=' absolute right-2 top-2 w-10 h-10 max-w-16' />
 
 

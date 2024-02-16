@@ -1,13 +1,12 @@
 import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import { LuUser2 } from "react-icons/lu";
 import { BiEditAlt } from "react-icons/bi";
 
 DropDown.defaultProps = {
   onEdit: ()=>""
 }
 
-export default function DropDown({  items, getItem, defautlIndexItem , onEdit }) {
+export default function DropDown({  items, getItem, defautlIndexItem , onEdit , ico }) {
   const [item, setItem] = useState(items?.[defautlIndexItem])
   function handleSelectItem(item) {
     setItem(item)
@@ -18,7 +17,7 @@ export default function DropDown({  items, getItem, defautlIndexItem , onEdit })
       <Menu as="div" className="relative w-56 rounded-3xl inline-block text-left  border-none outline-none ">
         <div className=' h-full overflow-hidden z-0'>
           <Menu.Button className="inline-flex bg-[#fff] p-1 h-full items-center justify-start w-full border-none outline-none gap-x-1.5 rounded-3xl text-white  text-xs font-semibold shadow-sm ring-1 ring-inset ring-gray-300 cursor-pointer">
-            <LuUser2 className=' w-11 h-11 bg-[#8E8E8E] rounded-full p-2' color='white' />
+            {ico}
           </Menu.Button>
         </div>
         <Transition
@@ -48,7 +47,8 @@ export default function DropDown({  items, getItem, defautlIndexItem , onEdit })
                 </Menu.Item>
               ))}
               <br />
-              <BiEditAlt className=' w-8 h-8 ml-auto cursor-pointer' color='#252525' onClick={()=>onEdit(true)}/>
+              {!!onEdit&&<BiEditAlt className=' w-8 h-8 ml-auto cursor-pointer' color='#252525' onClick={()=>onEdit(true)}/>}
+              
             </div>
           </Menu.Items>
         </Transition>

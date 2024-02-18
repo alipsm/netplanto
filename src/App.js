@@ -31,13 +31,14 @@ function App() {
             <Route path="scan" element={<Scan />} />
             <Route path="search" element={<Search />} />
             <Route path="registerQrcode" element={<RegisterQrcode />} />
-            <Route path="*" element={<Scan />} />
+            <Route path="*" element={<Navigate to={"/dashboard/scan"} replace />} />
           </Route>
           <Route path="/accountOperation" element={<AccountOperation />}>
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="forgotPassword" element={<ForgotPassword />} />
             <Route path="resetPassword" element={<ResetPassword />} />
+            <Route path="*" element={<Navigate to={"/"} replace />} />
           </Route>
           <Route path="/" element={<Welcome />} />
           <Route path="loading" element={<LoadingPage />} />

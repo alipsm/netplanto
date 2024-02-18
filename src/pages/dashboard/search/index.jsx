@@ -27,7 +27,7 @@ export default function Search() {
                         transition={{ duration: 1, delay: .3 }}
                         className=""
                     >
-                        <BiEditAlt className=" w-7 h-7 absolute top-4 -left-10 cursor-pointer hover:opacity-70" color='#252525' onClick={() => setshowEditAlert(true)} />
+                        <BiEditAlt className=" w-7 h-7 absolute top-4 right-12 z-10 cursor-pointer hover:opacity-70" color='#ABAAAA' onClick={() => setshowEditAlert(true)} />
                     </motion.div>
                 )}
                 <TextBox placeholder={"serial number"} getValue={setInputValue} />
@@ -37,7 +37,7 @@ export default function Search() {
                         animate={{ x: 0, opacity: [0, 1] }}
                         transition={{ duration: 1, delay: .3 }}
                     >
-                        <RiDeleteBin6Line className=" w-7 h-7 absolute top-4 -right-10 cursor-pointer hover:opacity-70" onClick={() => setshowDeleteAlert(true)} />
+                        <RiDeleteBin6Line className=" w-7 h-7 absolute top-4 right-3 cursor-pointer hover:opacity-70" color='#ABAAAA' onClick={() => setshowDeleteAlert(true)} />
                     </motion.div>
                 )}
                 <div className=' z-30 absolute -bottom-6 m-auto'>

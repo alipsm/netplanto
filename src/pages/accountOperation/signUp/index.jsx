@@ -81,8 +81,8 @@ export default function SignUp() {
                         initial={{ y: -20, opacity: [1, 0] }}
                         animate={{ y: 0, opacity: [0, 1] }}
                         transition={{ duration: .5 }}
-                        className=' absolute z-30 bg-[#fff] text-[#898989] bottom-0  rounded-xl flex justify-between flex-col items-center w-3/5 py-4 shadow-lg shadow-[#00000052]'>
-                        <FaArrowLeft onClick={() => setVerifyPhone(false)} color='white' className=' w-10 h-10 p-2 absolute top-5 left-3 rounded-full bg-[#B8B8B8] z-20 cursor-pointer' />
+                        className=' absolute z-30 bg-[#fff] text-[#898989] bottom-0  rounded-xl flex justify-between flex-col items-center w-3/5 py-4 px-2 shadow-lg shadow-[#00000052]'>
+                        <FaArrowLeft onClick={() => setVerifyPhone(false)} color='white' className=' w-4 h-4 p-1 box-content md:w-6 md:h-6 md:p-2 absolute top-5 left-3 rounded-full bg-[#B8B8B8] z-20 cursor-pointer' />
                         <p><strong>Verification Code</strong></p>
                         <br />
                         <TextBox placeholder={"verify code"} getValue={setVerifyPhoneCode}/>

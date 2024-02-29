@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 // import config from './config.json'
 
-const BASE_URL="http://193.36.84.113:8000"
+const BASE_URL="https://greenhousevira.ir/webapp"
 
 const token=localStorage.getItem("token");
 
@@ -45,12 +45,10 @@ export default function useApi() {
   }
   axios.defaults.headers.common["Content-Type"] = "application/json"
   async function post(path,body) {
-
     try {
       const data = await axios
         .post(BASE_URL+path, body)
         .catch((e) => {
-          // debugger
           const data=e.response.data
           let message="";
           for (const key in data) {
@@ -58,7 +56,6 @@ export default function useApi() {
                message += data[key];
             }
           }
-          // message+=(<><br/> hi</>)
           throw new Error(message);
         });
       if (data.status == 200||data.status==201||data.status==204) {
@@ -66,10 +63,31 @@ export default function useApi() {
       }
       throw new Error("Please try again status code:" + data.status);
     } catch (error) {
-      // debugger
-      console.log('error', error)
       throw Error(error.message);
     }
   }
-  return { post };
+
+  async function get(path) {
+    try {
+      const data = await axios
+        .get(BASE_URL+path)
+        .catch((e) => {
+          const data=e.response.data
+          let message="";
+          for (const key in data) {
+            if (Object.hasOwnProperty.call(data, key)) {
+               message += data[key];
+            }
+          }
+          throw new Error(message);
+        });
+      if (data.status == 200||data.status==201||data.status==204) {
+        return data.data;
+      }
+      throw new Error("Please try again status code:" + data.status);
+    } catch (error) {
+      throw Error(error.message);
+    }
+  }
+  return { post ,get};
 }

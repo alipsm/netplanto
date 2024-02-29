@@ -7,16 +7,47 @@ import { FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import Button from '../../../elements/button';
-import Toggle from '../../../elements/toggle';
 import AutomationDropDown from './dropDown';
+import useApi from '../../../hook/useApi';
+import { toast } from 'react-toastify';
 
 
 export default function Search() {
 
+    const { get , post } = useApi()
 
     const [inputValue, setInputValue] = useState("")
     const [showDeleteAlert, setshowDeleteAlert] = useState(false)
     const [showEditAlert, setshowEditAlert] = useState(false)
+
+    // your special product data
+    const [product, setproduct] = useState({})
+
+    // your all products array data
+    const [products, setproducts] = useState([])
+
+    async function getAllProducts() {
+        try {
+            const data = await get("/user/all_products")
+            setproducts(data)
+            console.log('data', data)
+        } catch (error) {
+            toast.error("خطا در دریافت اطلاعات")
+        } finally {
+        }
+    }
+
+    async function getProduct() {
+        try {
+            const data = await post("/user/product/"+inputValue)
+            setproduct(data)
+            console.log('data', data)
+        } catch (error) {
+            toast.error("خطا در دریافت اطلاعات")
+        } finally {
+        }
+    }
+
     return (
         <div className='w-full h-full flex justify-center'>
             <div className='relative w-max h-max flex justify-center'>

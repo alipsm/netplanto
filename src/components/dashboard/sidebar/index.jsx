@@ -6,11 +6,13 @@ import { IoChevronBackOutline } from "react-icons/io5";
 import { IoMdExit } from "react-icons/io";
 import { LuUser2 } from "react-icons/lu";
 import { TbWorld } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DropDown from "./dropDown";
 import EditUserData from "./editUserData";
 
 const SideBar = ({setIsDark}) => {
+
+  const navigate= useNavigate()
   const ref = useRef("");
 
   const [showMenu, setShowMenu] = useState(false);
@@ -40,9 +42,10 @@ const SideBar = ({setIsDark}) => {
     }
   }
 
-//   function handleDarkMode(status) {
-//     localStorage.setItem("dark",status)
-//   }
+  function signOut(){
+    localStorage.removeItem("token")
+    navigate("/accountOperation/login")
+  }
 
   return (
     <div className="w-full shadow-navbarShadow h-full  sticky top-0 z-50 bg-bodyColor px-4 ">
@@ -114,6 +117,7 @@ const SideBar = ({setIsDark}) => {
                 </div>{" "}
               </div>
               <IoMdExit
+              onClick={signOut}
                 className=" absolute bottom-2 left-6 w-14 h-14 cursor-pointer"
                 color="white"
               />

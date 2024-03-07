@@ -58,7 +58,7 @@ export default function useApi() {
           }
           throw new Error(message);
         });
-      if (data.status == 200||data.status==201||data.status==204) {
+      if (data.status == 200||data.status==201||data.status==204|| data.status == 202) {
         return data.data;
       }
       throw new Error("Please try again status code:" + data.status);

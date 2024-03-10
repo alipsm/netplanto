@@ -98,7 +98,7 @@ export default function SignUp() {
             </div>
             <div className='flex justify-center items-center flex-col w-64 m-auto gap-5 relative z-10 sm:top-2'>
                 <p>Already have an Account ?
-                    <Link to={"/accountOperation/login"} className=' w-full max-w-96 underline pl-1'>
+                    <Link to={"/user/login"} className=' w-full max-w-96 underline pl-1'>
                         Login
                     </Link>
                 </p>

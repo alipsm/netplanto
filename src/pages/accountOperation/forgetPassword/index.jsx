@@ -51,7 +51,7 @@ export default function ForgotPassword() {
                         a password reset message was sent to your email address.
                         please click the link in that message to reset your password.
                     </p>
-                    <Link to={"/accountOperation/resetPassword"} className='underline absolute left-0 inline-block w-full text-center bottom-10 m-auto'>Ok</Link>
+                    <Link to={"/user/resetPassword"} className='underline absolute left-0 inline-block w-full text-center bottom-10 m-auto'>Ok</Link>
                     </div>
                 </div>
             )}

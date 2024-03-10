@@ -33,7 +33,7 @@ function App() {
             <Route path="registerQrcode" element={<RegisterQrcode />} />
             <Route path="*" element={<Navigate to={"/dashboard/scan"} replace />} />
           </Route>
-          <Route path="/accountOperation" element={<AccountOperation />}>
+          <Route path="/user" element={<AccountOperation />}>
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="forgotPassword" element={<ForgotPassword />} />

@@ -49,12 +49,12 @@ export default function Login() {
                 <div className=' w-36'>
                 <Button text={"Login"} submit/>
                 </div>
-                <Link to='/accountOperation/forgotPassword' className=' underline'>
+                <Link to='/user/forgotPassword' className=' underline'>
                     Forgot Password
                 </Link>
             </form>
             <div className='flex justify-center items-center flex-col w-64 m-auto gap-5 relative z-10 sm:top-2'>
-            <Link to={"/accountOperation/signup"} className=' w-full max-w-96'>
+            <Link to={"/user/signup"} className=' w-full max-w-96'>
                         <Button text={"Sign Up"} />
                     </Link>
                     <GoogleLogin

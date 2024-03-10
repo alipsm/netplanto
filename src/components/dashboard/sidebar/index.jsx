@@ -44,7 +44,7 @@ const SideBar = ({setIsDark}) => {
 
   function signOut(){
     localStorage.removeItem("token")
-    navigate("/accountOperation/login")
+    navigate("/user/login")
   }
 
   return (

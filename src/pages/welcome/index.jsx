@@ -53,10 +53,10 @@ export default function Welcome() {
                 <NetPlantoAnimation />
             </motion.div>
                 <div className=' flex justify-between items-center flex-col gap-5 sm:gap-8 w-full '>
-                    <Link to={"/accountOperation/login"} className=' w-full max-w-96'>
+                    <Link to={"/user/login"} className=' w-full max-w-96'>
                         <Button text={"Login"} />
                     </Link>
-                    <Link to={"/accountOperation/signup"} className=' w-full max-w-96'>
+                    <Link to={"/user/signup"} className=' w-full max-w-96'>
                         <Button text={"Sign Up"} />
                     </Link>
                     <GoogleLogin

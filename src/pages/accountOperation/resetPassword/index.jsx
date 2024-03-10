@@ -22,7 +22,7 @@ export default function ResetPassword() {
               const data = await post("/user/resetPassword/",jsonData)
               console.log('data', data)
               toast.success(data?.message)
-              navigate("/accountOperation/login")
+              navigate("/user/login")
           } catch (error) {
               toast.error(error.message)
           } finally {

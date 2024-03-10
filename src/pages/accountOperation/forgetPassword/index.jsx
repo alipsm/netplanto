@@ -20,7 +20,7 @@ export default function ForgotPassword() {
             try {
                 const jsonData = convertFormDataToJson(e)
                 const data = await post("/user/forgetPassword/",jsonData)
-                console.log('data', data)
+                console.log('data', data) //TODO: comment this code
                 localStorage.setItem("token",data.token)
                 setShowBanner(true)
                 toast.success(data?.message)

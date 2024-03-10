@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { Outlet } from 'react-router'
-// import SideBar from './sidebar/SideBar'
+import React, { useEffect, useState } from 'react'
+import { Outlet, useNavigate } from 'react-router'
 import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 import { BsQuestionLg } from "react-icons/bs";
@@ -15,6 +14,12 @@ export default function Dashboard({setIsDark}) {
     const [showHint, setShowHint] = useState(false)
     const { pathname } = useLocation()
     const getSubdirectory = pathname.split("/").slice(-1)[0]
+
+    const navigate = useNavigate()
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        !!!token && navigate("/user/login",{replace:true})
+    }, [])
 
     return (
         <div className='flex justify-between w-full h-full relative'>

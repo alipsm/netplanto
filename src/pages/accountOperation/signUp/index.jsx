@@ -22,13 +22,12 @@ export default function SignUp() {
 
     const handleSubmitRegisterForm = async (e) => {
         e.preventDefault()
-        const { status, message, field } = getValidation(e);
+        const { status, message } = getValidation(e);
         if (status) {
             try {
                 const jsonData = convertFormDataToJson(e)
-                const data = await post("/user/register/",jsonData)
-                console.log('data', data)
-                localStorage.setItem("token",data.token)
+                const data = await post("/user/signup/",jsonData)
+                console.log('data', data) //TODO: comment this code
                 setVerifyPhone(true)
                 toast.success("لطفا تلفن همراه خودرا تایید کنید")
             } catch (error) {
@@ -67,11 +66,11 @@ export default function SignUp() {
                 
                 <form onSubmit={handleSubmitRegisterForm} className='flex flex-col justify-center items-center gap-5 justify-self-start w-4/6  '>
 
-                <TextBox name={"username"} value={"myUsernamea"} placeholder={"Username"} type={"text"}/>
-                <TextBox name={"email"} value={"aaaaaaaa@gmail.com"} placeholder={"Email"} type={"email"}/>
-                <TextBox name={"password"} value={"123456789"} placeholder={"Password"} type={"password"} />
-                <TextBox name={"confirmPassword"} value={"123456789"} placeholder={"Confirm Password"} type={"password"} />
-                <TextBox name={"phone"} value={"09012869416"} placeholder={"Phone Number"} type={"number"} />
+                <TextBox name={"username"}  placeholder={"Username"} type={"text"}/>
+                <TextBox name={"email"} placeholder={"Email"} type={"email"}/>
+                <TextBox name={"password"}  placeholder={"Password"} type={"password"} />
+                <TextBox name={"confirmPassword"}  placeholder={"Confirm Password"} type={"password"} />
+                <TextBox name={"phone"}  placeholder={"Phone Number"} type={"number"} />
                 <div className=' w-36'>
                     <Button text={"Sign Up"} submit/>
                 </div>

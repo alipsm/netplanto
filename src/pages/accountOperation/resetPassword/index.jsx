@@ -20,7 +20,7 @@ export default function ResetPassword() {
           try {
               const jsonData = convertFormDataToJson(e)
               const data = await post("/user/resetPassword/",jsonData)
-              console.log('data', data)
+              console.log('data', data) //TODO: comment this code
               toast.success(data?.message)
               navigate("/user/login")
           } catch (error) {

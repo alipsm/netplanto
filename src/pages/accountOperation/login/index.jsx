@@ -29,7 +29,7 @@ export default function Login() {
             try {
                 const jsonData = convertFormDataToJson(e)
                 const data = await post("/user/login/",jsonData)
-                console.log('data', data)
+                console.log('data', data) //TODO: comment this code
                 navigate("/dashboard/scan")
                 localStorage.setItem("token",data.token)
             } catch (error) {

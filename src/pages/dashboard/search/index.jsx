@@ -14,7 +14,7 @@ import { toast } from 'react-toastify';
 
 export default function Search() {
 
-    const { get , post } = useApi()
+    const { get } = useApi()
 
     const [inputValue, setInputValue] = useState("")
     const [showDeleteAlert, setshowDeleteAlert] = useState(false)
@@ -23,23 +23,9 @@ export default function Search() {
     // your special product data
     const [product, setproduct] = useState({})
 
-    // your all products array data
-    const [products, setproducts] = useState([])
-
-    async function getAllProducts() {
-        try {
-            const data = await get("/user/all_products")
-            setproducts(data)
-            console.log('data', data)
-        } catch (error) {
-            toast.error("خطا در دریافت اطلاعات")
-        } finally {
-        }
-    }
-
     async function getProduct() {
         try {
-            const data = await post("/user/product/"+inputValue)
+            const data = await get(`/user/product/${inputValue}/`)
             setproduct(data)
             console.log('data', data)
         } catch (error) {
@@ -53,7 +39,7 @@ export default function Search() {
             <div className='relative w-max h-max flex justify-center'>
                 {!!inputValue && (
                     <motion.div
-                        initial={{ x: 20, opacity: [1, 0] }}
+                    initial={{ x: 20, opacity: [1, 0] }}
                         animate={{ x: 0, opacity: [0, 1] }}
                         transition={{ duration: 1, delay: .3 }}
                         className=""
@@ -110,7 +96,7 @@ export default function Search() {
                     <TextBox placeholder={"Edit Name"} />
                     <br />
                     <div className=' w-52'>
-                        <Button text={"Submit"} type="success" />
+                        <Button text={"Submit"} type="success"/>
                     </div>
                     <br />
                     <br />

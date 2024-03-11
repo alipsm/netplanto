@@ -26,7 +26,7 @@ export default function SignUp() {
         if (status) {
             try {
                 const jsonData = convertFormDataToJson(e)
-                const data = await post("/user/signup/",jsonData)
+                const data = await post("/user/registers/",jsonData)
                 console.log('data', data) //TODO: comment this code
                 setVerifyPhone(true)
                 toast.success("لطفا تلفن همراه خودرا تایید کنید")

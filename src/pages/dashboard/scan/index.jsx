@@ -3,14 +3,21 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 import TextBox from "../../../elements/textBox";
 import Button from "../../../elements/button";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import useApi from "../../../hook/useApi";
 
 function Scan() {
+
+    const {post} = useApi()
+
     const [data, setData] = React.useState();
 
     const [serialNumberValue, setSerialNumberValue] = useState("")
     const [serialNameValue, setSerialNameValue] = useState("")
     //   const [torchOn, setTorchOn] = React.useState(false);
 
+    const navigate= useNavigate()
 
     useEffect(() => {
         // alert(data)
@@ -29,13 +36,25 @@ function Scan() {
         scanner.render(success, error)
 
         function success(result) {
-            setData(result)
+            setProduct(result.name,result.serial) 
         }
 
         function error(err) {
             setData(err)
         }
     }, [])
+
+    async function setProduct(name,serial) {
+        try {
+            const data = await post(`/user/product/${serial}/`,{name})
+            console.log('data', data) //TODO: comment this code
+            navigate("/dashboard/search")
+
+        } catch (error) {
+            toast.error("خطا در دریافت اطلاعات")
+        } finally {
+        }
+    }
 
     console.log('ser', serialNumberValue)
     return (
@@ -69,7 +88,7 @@ function Scan() {
                                 transition={{ duration: .5, delay: .8 }}
                                 className=" w-52"
                             >
-                                <Button text={"confirm"} type="success" />
+                                <Button text={"confirm"} type="success" onclick={()=>setProduct(serialNameValue,serialNumberValue)}/>
                             </motion.div>
 
                         </>
